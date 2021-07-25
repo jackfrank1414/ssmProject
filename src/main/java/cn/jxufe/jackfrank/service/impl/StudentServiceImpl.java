@@ -103,6 +103,13 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public MessageModel updateStudent(Student student) {
         MessageModel messageModel = new MessageModel();
+        messageModel.setObject(student);
+        Student oldStudent = studentDao.queryStudentByStudentNo(student.getStudentNo());
+
+        if(oldStudent.equals(student)){
+            messageModel.setMsg("");
+            return messageModel;
+        }
 
         if(StringUtil.isEmpty(student.getStudentNo()) || StringUtil.isEmpty(student.getStudentName())){
             messageModel.setCode(0);

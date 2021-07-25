@@ -56,10 +56,6 @@
                     return;
                 }
                 else {
-                    if(gender !== "男" || gender !== "女"){
-                        alert("性别格式错误（男/女");
-                        return;
-                    }
                     if(isEmpty(birthday)){
                         alert("出生日期不能为空！")
                         return;
@@ -81,7 +77,6 @@
     }
 
 
-    });
 
 </script>
 

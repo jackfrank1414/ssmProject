@@ -223,11 +223,11 @@
 <div class="wrap">
     <div class="container">
         <h1 style="color: white; margin: 0; text-align: center">Sign up</h1>
-        <form action="${pageContext.request.contextPath}/register" method="post" id="registerForm">
+        <form action="${pageContext.request.contextPath}/register2" method="post" id="registerForm">
             <label><input type="text" name = "uname" id="uname" value="${messageModel.object.userName}" placeholder="Your username"/></label>
             <label><input type="password" name="upwd" id="upwd" placeholder="password" /></label>
             <label><input type="password" name="upwdAg" id="upwdAg" placeholder="Please confirm your password" /></label>
-            <span id="msg" style="font-size: 12px;color: #ff0000">${messageModel.msg}</span> <br>
+            <span id="msg" style="text-align:center; font-size: 12px;color: #ff0000">${messageModel.msg}</span> <br>
             <input type="button" id="registerBtn" value="Sign up"/>
             <p class="change_link" style="text-align: center">
                 <span class="text">Already a member ?</span>

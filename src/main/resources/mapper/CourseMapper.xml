@@ -6,7 +6,7 @@
         insert into course (courseNo, courseName, hour, credit) values (#{courseNo}, #{courseName}, #{hour}, #{credit})
     </insert>
 
-    <update id="updateCourse">
+    <update id="updateCourse" parameterType="cn.jxufe.jackfrank.domain.Course">
         update course
         set courseNo = #{courseNo}, courseName = #{courseName}, hour = #{hour}, credit = #{credit}
         where courseNo = #{courseNo}

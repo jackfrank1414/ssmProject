@@ -54,7 +54,7 @@ public class CourseServiceImpl implements CourseService {
                 messageModel.setMsg("课程学分不能为空！");
             }
         }
-        if(!courseDao.insertCourse(course)){
+        else if(!courseDao.insertCourse(course)){
             messageModel.setCode(0);
             messageModel.setMsg("系统错误！");
         }
@@ -70,7 +70,7 @@ public class CourseServiceImpl implements CourseService {
             messageModel.setCode(0);
             messageModel.setMsg("不存在该课程！");
         }
-        if(!courseDao.deleteCourse(courseNo)){
+        else if(!courseDao.deleteCourse(courseNo)){
             messageModel.setCode(0);
             messageModel.setMsg("系统错误！");
         }

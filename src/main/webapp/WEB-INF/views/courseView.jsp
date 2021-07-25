@@ -43,27 +43,27 @@
 <div class="content">
 
     <input type="text" id="lin" placeholder="请输入需要搜索的内容">
-    <a href="${pageContext.request.contextPath}/userView">刷新一下</a>
-    <a href="${pageContext.request.contextPath}/turnToAddStudent" >添加学生</a>
-    <a href="${pageContext.request.contextPath}/turnToDeleteStudent">删除学生</a>
+    <a href="/courseView">刷新一下</a>
+    <a href="/turnToAddCourse" >添加课程</a>
+    <a href="/turnToDeleteCourse">删除课程</a>
 
 
     <table id="table-1" cellspacing='0' border="1" style="text-align: center;">
         <tr>
-            <th>学号</th>
-            <th>姓名</th>
-            <th>性别</th>
-            <th>出生年月</th>
+            <th>课程号</th>
+            <th>课程名</th>
+            <th>时长</th>
+            <th>学分</th>
             <th>    </th>
         </tr>
 
-        <c:forEach items="${studentList}" var="b">
+        <c:forEach items="${courseList}" var="b">
             <tr>
-                <td>${b.studentNo}</td>
-                <td>${b.studentName}</td>
-                <td>${b.gender}</td>
-                <td>${b.birthday}</td>
-                <td><a href="/turnToUpdateStudent?studentNo=${b.studentNo}">修改</a></td>
+                <td>${b.courseNo}</td>
+                <td>${b.courseName}</td>
+                <td>${b.hour}</td>
+                <td>${b.credit}</td>
+                <td><a href="/turnToUpdateCourse?courseNo=${b.courseNo}">修改</a></td>
             </tr>
         </c:forEach>
 

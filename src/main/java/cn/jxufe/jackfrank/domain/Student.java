@@ -1,5 +1,7 @@
 package cn.jxufe.jackfrank.domain;
 
+import java.util.Objects;
+
 /**
  * TODO
  *
@@ -61,5 +63,25 @@ public class Student {
                 ", gender='" + gender + '\'' +
                 ", birthday='" + birthday + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Student)) {
+            return false;
+        }
+        Student student = (Student) o;
+        return getStudentNo().equals(student.getStudentNo()) &&
+                getStudentName().equals(student.getStudentName()) &&
+                getGender().equals(student.getGender()) &&
+                getBirthday().equals(student.getBirthday());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getStudentNo(), getStudentName(), getGender(), getBirthday());
     }
 }

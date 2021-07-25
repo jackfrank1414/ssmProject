@@ -5,6 +5,7 @@ import cn.jxufe.jackfrank.domain.vo.MessageModel;
 import cn.jxufe.jackfrank.service.StudentService;
 import cn.jxufe.jackfrank.service.impl.StudentServiceImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.ValidationAnnotationUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,10 +24,16 @@ import java.util.List;
  * @version 1.0
  * @date 2021/7/21 0:07
  */
+
 @Controller
 public class StudentController {
     @Resource(name = "studentService")
     private StudentService studentService;
+
+    @RequestMapping(value = "/turnToUserView")
+    public String turnToUserView(){
+        return "userView";
+    }
 
     @RequestMapping(value = "/userView")
     public ModelAndView listStudent(ModelAndView modelAndView){
@@ -35,21 +42,22 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "turnToAddStudent")
+    @RequestMapping(value = "/turnToAddStudent")
     public String turnToAddStudent(){
         return "addStudent";
     }
 
-    @RequestMapping(value = "turnToDeleteStudent")
+    @RequestMapping(value = "/turnToDeleteStudent")
     public String turnToDeleteStudent(){
         return "deleteStudent";
     }
 
-    @RequestMapping(value = "turnToUpdateStudent")
+    @RequestMapping(value = "/turnToUpdateStudent")
     public ModelAndView turnToUpdateStudent(@RequestParam(name = "studentNo")String studentNo, ModelAndView modelAndView){
         MessageModel messageModel = new MessageModel();
         Student student = studentService.queryStudentByStudentNo(studentNo);
         messageModel.setObject(student);
+        messageModel.setMsg("");
 
         modelAndView.setViewName("updateStudent");
         modelAndView.addObject("messageModel",messageModel);

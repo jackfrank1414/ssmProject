@@ -42,7 +42,7 @@
         <div class="btn-group">
             <button class="btn btn--primary" type="button" id="loginBtn">登录</button>
             <span id="msg" style="font-size: 12px;color: #ff0000">${messageModel.msg}</span> <br>
-            <a class="btn--text" href="register2.jsp">没有账号？</a>
+            <a class="btn--text" href="register.jsp">没有账号？</a>
         </div>
     </div>
 </form>
