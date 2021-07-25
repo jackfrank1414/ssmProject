@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jxufe.jackfrank.dao.CourseDao">
+
+    <insert id="insertCourse" parameterType="cn.jxufe.jackfrank.domain.Course">
+        insert into course (courseNo, courseName, hour, credit) values (#{courseNo}, #{courseName}, #{hour}, #{credit})
+    </insert>
+
+    <update id="updateCourse">
+        update course
+        set courseNo = #{courseNo}, courseName = #{courseName}, hour = #{hour}, credit = #{credit}
+        where courseNo = #{courseNo}
+    </update>
+
+    <delete id="deleteCourse" parameterType="string">
+        delete from course
+        where courseNo = #{courseNo}
+    </delete>
+
+
+    <select id="queryCourseByCourseNo" parameterType="string" resultType="cn.jxufe.jackfrank.domain.Course">
+        select *
+        from course
+        where courseNo = #{courseNo}
+    </select>
+
+    <select id="queryCourseByCourseName" resultType="cn.jxufe.jackfrank.domain.Course">
+        select *
+        from course
+        where courseName = #{courseName}
+    </select>
+
+    <select id="findAllCourse" resultType="cn.jxufe.jackfrank.domain.Course">
+        select *
+        from course
+    </select>
+
+</mapper>

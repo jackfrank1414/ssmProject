@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--HandlerMapping和HandlerAdapter-->
+    <mvc:annotation-driven/>
+    <!--扫描controller包-->
+    <context:component-scan base-package="cn.jxufe.jackfrank.controller"/>
+
+    <!--视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <!--后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+<!--    &lt;!&ndash;配置处理器适配器&ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+<!--        <property name="messageConverters">-->
+<!--            <list>-->
+<!--                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <!--对于静态资源不拦截-->
+    <mvc:default-servlet-handler/>
+</beans>
